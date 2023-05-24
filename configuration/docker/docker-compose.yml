@@ -9,3 +9,9 @@ services:
       POSTGRES_PASSWORD: 'postgres'
     ports:
       - '5432:5432'
+
+  delivery-point-rating-data-service:
+    image: savin0000/delivery-point-rating-data-service:main
+    container_name: delivery-point-rating-data-service
+    ports:
+      - '8080:8080'
