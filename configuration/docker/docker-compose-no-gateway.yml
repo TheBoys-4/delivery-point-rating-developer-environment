@@ -4,6 +4,8 @@ services:
   delivery-point-rating-ui:
     image: ghcr.io/theboys-4/delivery-point-rating-ui:main
     container_name: delivery-point-rating-ui
+    ports:
+      - '3000:3000'
     extra_hosts:
       - 'host.docker.internal:172.17.0.1'
     network_mode: host
@@ -11,6 +13,8 @@ services:
   delivery-point-rating-data-service:
     image: savin0000/delivery-point-rating-data-service:main
     container_name: delivery-point-rating-data-service
+    ports:
+      - '8080:8080'
     extra_hosts:
       - 'host.docker.internal:172.17.0.1'
     network_mode: host
@@ -18,7 +22,8 @@ services:
   grafana:
     image: grafana/grafana-enterprise
     container_name: grafana
-    network_mode: host
+    ports:
+      - '3001:3000'
 
   postgres:
     image: postgres:latest
