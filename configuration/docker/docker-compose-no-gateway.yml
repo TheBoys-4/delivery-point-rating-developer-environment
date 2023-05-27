@@ -8,7 +8,6 @@ services:
       - '3000:3000'
     extra_hosts:
       - 'host.docker.internal:172.17.0.1'
-    network_mode: host
 
   delivery-point-rating-data-service:
     image: savin0000/delivery-point-rating-data-service:main
@@ -17,7 +16,6 @@ services:
       - '8080:8080'
     extra_hosts:
       - 'host.docker.internal:172.17.0.1'
-    network_mode: host
 
   grafana:
     image: grafana/grafana-enterprise
