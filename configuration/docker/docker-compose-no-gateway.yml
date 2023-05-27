@@ -15,6 +15,7 @@ services:
     image: savin0000/delivery-point-rating-data-service:main
     container_name: delivery-point-rating-data-service
     ports:
+      - '127.0.0.1:8080:8080'
       - '8080:8080'
     networks:
       - default_network
@@ -25,6 +26,7 @@ services:
     image: grafana/grafana-enterprise
     container_name: grafana
     ports:
+      - '127.0.0.1:3001:3001'
       - '3001:3000'
     networks:
       - default_network
