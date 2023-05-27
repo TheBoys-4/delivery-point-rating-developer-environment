@@ -1,5 +1,55 @@
 version: '3.9'
 services:
+  delivery-point-rating-ui:
+    image: ghcr.io/theboys-4/delivery-point-rating-ui:main
+    container_name: delivery-point-rating-ui
+    ports:
+      - '3000:3000'
+    networks:
+      - default_network
+    extra_hosts:
+      - 'host.docker.internal:172.17.0.1'
+
+  delivery-point-rating-gateway:
+    image: ghcr.io/theboys-4/delivery-point-rating-gateway:main
+    container_name: delivery-point-rating-gateway
+    ports:
+      - '80:9090'
+    networks:
+      - default_network
+    extra_hosts:
+      - 'host.docker.internal:172.17.0.1'
+
+  delivery-point-rating-data-service:
+    image: ghcr.io/theboys-4/delivery-point-rating-data-service:main
+    container_name: delivery-point-rating-data-service
+    ports:
+      - '8080:8080'
+    networks:
+      - default_network
+    extra_hosts:
+      - 'host.docker.internal:172.17.0.1'
+
+#  delivery-point-rating-tg-bot:
+#    image: ghcr.io/theboys-4/delivery-point-rating-tg-bot:main
+#    container_name: delivery-point-rating-tg-bot
+#    ports:
+#      - '8081:8081'
+#    networks:
+#      - default_network
+#    extra_hosts:
+#      - 'host.docker.internal:172.17.0.1'
+
+#  delivery-point-rating-data-processing-service:
+#    image: ghcr.io/theboys-4/delivery-point-rating-data-processing-service:main
+#    container_name: delivery-point-rating-data-processing-service
+#    ports:
+#      - '8082:8082'
+#    networks:
+#      - default_network
+#    extra_hosts:
+#      - 'host.docker.internal:172.17.0.1'
+
   postgres:
     image: postgres:latest
     container_name: postgres
@@ -12,15 +62,13 @@ services:
     networks:
       - default_network
 
-  delivery-point-rating-data-service:
-    image: savin0000/delivery-point-rating-data-service:main
-    container_name: delivery-point-rating-data-service
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
     ports:
-      - '80:8080'
+      - '3001:3000'
     networks:
       - default_network
-    extra_hosts:
-      - 'host.docker.internal:172.17.0.1'
 
 networks:
   default_network:
