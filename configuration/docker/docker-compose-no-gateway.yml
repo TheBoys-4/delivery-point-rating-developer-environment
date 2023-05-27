@@ -5,7 +5,7 @@ services:
     image: ghcr.io/theboys-4/delivery-point-rating-ui:main
     container_name: delivery-point-rating-ui
     ports:
-      - '80:3000'
+      - '127.0.0.1:3000:3000'
     networks:
       - default_network
     extra_hosts:
