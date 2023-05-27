@@ -5,7 +5,7 @@ services:
     image: ghcr.io/theboys-4/delivery-point-rating-ui:main
     container_name: delivery-point-rating-ui
     ports:
-      - '127.0.0.1:3000:80'
+      - '3000:3000'
     networks:
       - default_network
     extra_hosts:
@@ -25,7 +25,7 @@ services:
     image: grafana/grafana-enterprise
     container_name: grafana
     ports:
-      - '127.0.0.1:3001:3000'
+      - '3001:3000'
     networks:
       - default_network
 
