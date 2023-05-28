@@ -9,7 +9,7 @@ services:
       - 'host.docker.internal:172.17.0.1'
 
   delivery-point-rating-data-service:
-    image: savin0000/delivery-point-rating-data-service:main
+    image: ghcr.io/theboys-4/delivery-point-rating-ui:main
     container_name: delivery-point-rating-data-service
     ports:
       - '8080:8080'
